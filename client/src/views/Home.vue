@@ -1,15 +1,18 @@
 <template>
-  <navbar />
+  <!-- <navbar /> -->
+  <KWDatum />
 </template>
 
 <script>
-  import Navbar from '../components/Navbar'
+// import Navbar from '../components/Navbar';
+import KWDatum from '@/components/KWDatum.vue';
 
-  export default {
-    name: 'Home',
+export default {
+  name: 'Home',
 
-    components: {
-      Navbar,
-    },
-  }
+  components: {
+    // Navbar,
+    KWDatum,
+  },
+};
 </script>
