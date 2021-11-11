@@ -1,18 +1,27 @@
 <template>
-  <!-- <navbar /> -->
-  <KWDatum />
+  <div class="container">
+    <v-row><Header /></v-row>
+    <v-row> <KWDatum /></v-row>
+
+    <!-- <termin /> -->
+    <!-- <menubar /> -->
+  </div>
 </template>
 
 <script>
-// import Navbar from '../components/Navbar';
+import Header from '@/components/Header';
 import KWDatum from '@/components/KWDatum.vue';
+// import Termin from '@/components/Termin.vue';
+// import Menubar from '@/components/Menubar.vue';
 
 export default {
   name: 'Home',
 
   components: {
-    // Navbar,
+    Header,
     KWDatum,
+    // Termin,
+    // Menubar,
   },
 };
 </script>

@@ -1,16 +1,18 @@
 <template>
-  <v-app-bar color="black" absolute dark>
-    <!-- Vom Handy holen wenn wir PWA gelernt haben -->
-    <!-- Kalenderwoche -->
-    KW: {{ kw }}
+  <div class="container-fluid">
+    <v-card color="green" absolute dark>
+      <!-- Vom Handy holen wenn wir PWA gelernt haben -->
+      <!-- Kalenderwoche -->
+      KW: {{ kw }}
 
-    <v-spacer></v-spacer>
+      <v-spacer></v-spacer>
 
-    <!-- Erster Tag der Kalenderwoche -->
-    MO {{ start }} -
-    <!-- Letzter Tag der Kalenderwoche -->
-    SO {{ finish }}
-  </v-app-bar>
+      <!-- Erster Tag der Kalenderwoche -->
+      MO {{ start }} -
+      <!-- Letzter Tag der Kalenderwoche -->
+      SO {{ finish }}
+    </v-card>
+  </div>
 </template>
 
 <script>

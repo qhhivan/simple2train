@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar color="black" absolute dark>
+  <v-card color="black" absolute dark>
     <!-- LOGO -->
     <img src="../../public/img/logo.svg" width="55" height="55" class="my-1" />
 
@@ -9,7 +9,7 @@
     <v-icon color="#009D2B" @click="createTraining()">{{
       mdiCalendarPlus
     }}</v-icon>
-  </v-app-bar>
+  </v-card>
 </template>
 
 <script>
