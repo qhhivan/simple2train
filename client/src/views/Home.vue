@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container-fluid">
     <v-row><Header /></v-row>
     <v-row> <KWDatum /></v-row>
 
