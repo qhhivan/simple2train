@@ -181,14 +181,23 @@
         </v-card-actions>
       </v-card>
     </v-dialog>
+    <!-- <KWDatum /> -->
   </v-app-bar>
+
+  <!-- KW - Date -->
 </template>
 
 <script>
 // ICON
 import { mdiCalendarPlus } from '@mdi/js';
 
+// COMPONENT
+// import KWDatum from '@/components/KWDatum.vue';
+
 export default {
+  components: {
+    // KWDatum,
+  },
   data() {
     return {
       // ICON
