@@ -1,8 +1,7 @@
 <template>
   <v-app>
-        <Header />
-    <v-spacer></v-spacer>
-    <v-main>
+    <Header />
+    <v-main class="mt-8">
       <router-view />
     </v-main>
     <menubar />
@@ -17,7 +16,7 @@ export default {
   name: 'App',
   components: {
     Menubar,
-    Header
+    Header,
   },
   data: () => ({
     //

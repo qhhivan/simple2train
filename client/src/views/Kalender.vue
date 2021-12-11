@@ -12,21 +12,21 @@
     ></v-date-picker>
   </v-row>
 </template>
+
 <script>
 export default {
   data: () => ({
-    dates: [],
-    
+    dates: ['2018-09-15', '2018-09-20', '2018-09-01', '2018-09-29', '2018-09-24'],
   }),
 
   methods: {
     dblClick(date) {
       alert(`You have just double clicked the following date: ${date}`);
     },
-    allowedDates(){
-        // Hier kann ich Datums erlauben oder nicht
-        return ['2018-09-15', '2018-09-20']
-    }
+    allowedDates() {
+      // Hier kann ich Datums erlauben oder nicht
+      return ['2018-09-15', '2018-09-20'];
+    },
   },
 };
 </script>
