@@ -5,7 +5,7 @@
     <v-main class="mt-8">
       <router-view />
     </v-main>
-    <menubar />
+    <menubar fixed/>
   </v-app>
 </template>
 

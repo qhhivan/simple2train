@@ -1,7 +1,7 @@
 <template>
-  <v-bottom-navigation background-color="black" dark class=".align-self-center">
+  <v-bottom-navigation class=".align-self-center" outlned>
     <!-- Termine -->
-    <v-btn class="my-auto" :to="'/'">
+    <v-btn class="my-auto" :to="'/'" >
       <span>Termine</span>
 
       <v-icon>{{ mdiCalendarText }}</v-icon>

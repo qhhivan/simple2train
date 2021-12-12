@@ -18,7 +18,7 @@
         <v-list-item-icon> </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>Jürgen</v-list-item-title>
+          <v-list-item-title>Stefan</v-list-item-title>
           <v-list-item-subtitle>Vorname</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -30,7 +30,7 @@
         <v-list-item-icon> </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>Klopp</v-list-item-title>
+          <v-list-item-title>Coso</v-list-item-title>
           <v-list-item-subtitle>Nachname</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -62,7 +62,7 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>jürgenklopp@gmail.com</v-list-item-title>
+          <v-list-item-title>jokiCoso@gmail.com</v-list-item-title>
           <v-list-item-subtitle>E-Mail</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
