@@ -1,16 +1,16 @@
 <template>
     <v-container>
-        <!-- <Termin /> -->
+        <Termin />
     </v-container>
 </template>
 
 <script>
 // COMPONENTS
-// import Termin from '@/components/Termin.vue';
+import Termin from '@/components/Termin.vue';
 
     export default {
         components: {
-            // Termin,
+            Termin,
         },
     }
 </script>
