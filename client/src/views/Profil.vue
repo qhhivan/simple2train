@@ -1,11 +1,12 @@
 <template>
   <v-card width="100%">
     <!-- Hintergrundbild -->
-    <v-img height="264px" src="../../public/img/profil/fb-platz.jpg">
+    <v-img height="264px" src="../../public/profil/fb-platz.jpg">
       <v-card-title class="white--text my-8 mx-2">
         <!-- Avatar -->
+        
         <v-avatar size="100" class="my-2">
-          <img alt="user" src="../../public/img/profil/pb.jpg" />
+          <img alt="user" src="../../public/profil/pb.jpg"/>
         </v-avatar>
       </v-card-title>
     </v-img>
@@ -18,7 +19,7 @@
         <v-list-item-icon> </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>Stefan</v-list-item-title>
+          <v-list-item-title>John</v-list-item-title>
           <v-list-item-subtitle>Vorname</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -30,7 +31,7 @@
         <v-list-item-icon> </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>Coso</v-list-item-title>
+          <v-list-item-title>Doe</v-list-item-title>
           <v-list-item-subtitle>Nachname</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -62,7 +63,7 @@
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>jokiCoso@gmail.com</v-list-item-title>
+          <v-list-item-title>doe.j75@htlwienwest.at</v-list-item-title>
           <v-list-item-subtitle>E-Mail</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>

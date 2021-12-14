@@ -18,13 +18,7 @@
     ></v-date-picker>
 
     <!-- Vorzeige -->
-    <v-card
-      class="mx-auto mt-8"
-      max-width="344"
-      outlined
-      v-for="t in termine"
-      v-bind:key="t.date"
-    >
+    <v-card class="mx-auto mt-8" max-width="344" outlined v-for="t in termine" v-bind:key="t.date">
       <v-list-item three-line>
         <v-list-item-content>
           <v-list-item-title class="text-h6 mb-1">
@@ -56,36 +50,20 @@ import { mdiVlc } from '@mdi/js';
 
 export default {
   data: () => ({
-    dates: [
-      '2021-12-15',
-      '2021-12-20',
-      '2021-12-01',
-      '2021-12-29',
-      '2021-12-24',
-    ],
+    dates: ['2021-12-15', '2021-12-20', '2021-12-01', '2021-12-29', '2021-12-24'],
 
-    // Testdaten
     icon: mdiVlc,
     text: 'JA',
 
-    // termin: {
-    //   date: '25.10.2021',
-    //   day: 'Montag - ',
-    //   time: '20:00',
-    //   tp: '19:45',
-    //   deadlineTime: '19:45',
-    //   deadlineDate: '24.10.2021',
-    //   kosten: '2€',
-    // },
     termine: [
       {
-        date: '24.10.2021',
+        date: '15.12.2021',
         day: 'Montag - ',
         time: '20:00',
         tp: '19:45',
         deadlineTime: '19:45',
         deadlineDate: '24.10.2021',
-        kosten: '2€',
+        kosten: '2 €',
       },
     ],
   }),
