@@ -1,0 +1,37 @@
+GET http://localhost:3000/teilnehmer
+###
+GET http://localhost:3000/trainings
+###
+GET http://localhost:3000/training/2
+###
+GET http://localhost:3000//trainingteilnehmer/2
+###
+DELETE http://localhost:3000/teilnehmer/100
+###
+POST http://localhost:3000/teilnehmer
+Content-Type: application/json
+
+{
+    "teilnehmerid": 100,
+    "vorname": "John",
+    "nachname": "Doe",
+    "geburtsdatum": "2000-01-01",
+    "email": "doe.j00@htlwienwest.at",
+    "passwort": "simple2trainjohn"
+}
+###
+POST http://localhost:3000/training
+Content-Type: application/json
+
+{
+    "trainingsid": 100,
+    "datum": "2026-01-01",
+    "beginn": "23:59",
+    "ort": "HTL TEST",
+    "kosten": "49.99",
+    "minimum": "10",
+    "maximum": "25",
+    "trainerid": 1,
+    "ende": "00:00",
+    "eintragefrist": "2025-12-31"
+}
