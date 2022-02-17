@@ -9,14 +9,18 @@
       v-model="dates"
       :allowed-dates="allowedDates"
       multiple
-      @click:date="dblClick"
+      @click:date="filterTraining"
       readonly
       header-color="green"
       color="green lighten-1"
       show-adjacent-months
       show-current
+      picker-date
+      selected-items-text="// Jetziger Monat"
     ></v-date-picker>
 
+<!-- Trainings -->
+<!-- Alle Trainings anzeigen und on click filtern -->
     <!-- Vorzeige -->
     <v-card class="mx-auto mt-8" max-width="344" outlined v-for="t in termine" v-bind:key="t.date">
       <v-list-item three-line>
@@ -69,8 +73,8 @@ export default {
   }),
 
   methods: {
-    dblClick(date) {
-      alert(`You have just double clicked the following date: ${date}`);
+    filterTraining(date) {
+      alert(`Hier wird ein Training vom: ${date} gefiltert`);
     },
     allowedDates() {
       // Hier kann ich Datums erlauben oder nicht
