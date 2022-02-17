@@ -1,5 +1,5 @@
 {
-  "name": "testplf",
+  "name": "simple2train",
   "version": "1.0.0",
   "description": "a simple test plf",
   "main": "app.js",
@@ -7,7 +7,7 @@
     "start": "nodemon app.js",
     "lint": "eslint . --ext .js"
   },
-  "author": "RB",
+  "author": "Ivan Orsolic",
   "license": "ISC",
   "dependencies": {
     "colors": "^1.4.0",

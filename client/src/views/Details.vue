@@ -101,7 +101,7 @@
           </template>
         </v-dialog>
         <!-- <v-btn color="red darken-4" class="white--text" @click="deleteTraining()"> Training löschen </v-btn> -->
-        <v-btn text color="green accent-4" :to="`/${getTraining.trainings_id}/details`"> Einladen </v-btn>
+        <v-btn text color="green accent-4" :to="`/${getTraining.trainings_id}/details`" @click="updateTraining()"> Bearbeiten </v-btn>
       </v-card-actions>
     </v-card>
   </v-container>
@@ -165,6 +165,9 @@ export default {
         console.error(error)
       }
     },
+    async updateTraining(){
+      console.log('bearbeiten');
+    }
   },
   computed: {
     getTraining() {

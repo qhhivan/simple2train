@@ -1,5 +1,6 @@
 <template>
   <v-app>
+    <!-- Header -->
     <v-app-bar app color="black" fixed absolute dark>
       <div class="d-flex align-center">
         <v-img
@@ -15,17 +16,31 @@
 
       <v-spacer></v-spacer>
 
-      <v-dialog transition="dialog-top-transition" v-model="dialog" persistent max-width="600px">
+      <!-- Projekte hinzufügen -->
+      <v-dialog
+        transition="dialog-top-transition"
+        v-model="dialog"
+        persistent
+        max-width="600px"
+      >
+        <!-- Create Icon -->
         <template v-slot:activator="{ on, attrs }">
           <v-btn color="black" dark v-bind="attrs" v-on="on">
             <v-icon color="#009D2B">{{ mdiCalendarPlus }}</v-icon>
           </v-btn>
         </template>
+        <!--  -->
+
         <template v-slot:default="dialog">
           <v-card>
+            <!-- Header -->
             <v-card-title>
-              <v-toolbar class="elevation-0 text-h6 font-weight-bold" light>Training hinzufügen</v-toolbar>
+              <v-toolbar class="elevation-0 text-h6 font-weight-bold" light
+                >Training hinzufügen</v-toolbar
+              >
             </v-card-title>
+            <!--  -->
+
             <v-card-text>
               <v-container>
                 <v-row>
@@ -52,38 +67,17 @@
                       </template>
                       <v-date-picker v-model="tbDate" no-title scrollable>
                         <v-spacer></v-spacer>
-                        <v-btn text color="primary" @click="dialog.value = false"> Cancel </v-btn>
+                        <v-btn text color="primary" @click="menu = false">
+                          Cancel
+                        </v-btn>
 
-                        <v-btn text color="primary" @click="$refs.menu.save(tbDate)"> OK </v-btn>
-                      </v-date-picker>
-                    </v-menu>
-                  </v-col>
-
-                  <v-col cols="12" sm="6" md="4">
-                    <v-menu
-                      ref="menu"
-                      v-model="menu"
-                      :close-on-content-click="false"
-                      :return-value.sync="tbDate"
-                      transition="scale-transition"
-                      offset-y
-                      min-width="auto"
-                    >
-                      <template v-slot:activator="{ on, attrs }">
-                        <v-text-field
-                          v-model="tbFrist"
-                          label="Frist"
-                          prepend-icon="mdi-calendar"
-                          readonly
-                          v-bind="attrs"
-                          v-on="on"
-                        ></v-text-field>
-                      </template>
-                      <v-date-picker v-model="tbFrist" no-title scrollable>
-                        <v-spacer></v-spacer>
-                        <v-btn text color="primary" @click="dialog.value = false"> Cancel </v-btn>
-
-                        <v-btn text color="primary" @click="$refs.menu.save(tbFrist)"> OK </v-btn>
+                        <v-btn
+                          text
+                          color="primary"
+                          @click="$refs.menu.save(tbDate)"
+                        >
+                          OK
+                        </v-btn>
                       </v-date-picker>
                     </v-menu>
                   </v-col>
@@ -123,7 +117,8 @@
                     </v-menu>
                   </v-col>
 
-                  <v-col cols="11" sm="5">
+                  <!-- Trainingsende  -->
+                  <!-- <v-col cols="11" sm="5">
                     <v-menu
                       ref="menu2"
                       v-model="menu2"
@@ -153,7 +148,7 @@
                         @click:minute="$refs.menu2.save(tbeTime)"
                       ></v-time-picker>
                     </v-menu>
-                  </v-col>
+                  </v-col> -->
 
                   <!-- Anmeldefrist  -->
                   <v-col cols="12" sm="6" md="4">
@@ -178,8 +173,16 @@
                       </template>
                       <v-date-picker v-model="anDate" no-title scrollable>
                         <v-spacer></v-spacer>
-                        <v-btn text color="primary" @click="menu3 = false"> Cancel </v-btn>
-                        <v-btn text color="primary" @click="$refs.menu3.save(anDate)"> OK </v-btn>
+                        <v-btn text color="primary" @click="menu3 = false">
+                          Cancel
+                        </v-btn>
+                        <v-btn
+                          text
+                          color="primary"
+                          @click="$refs.menu3.save(anDate)"
+                        >
+                          OK
+                        </v-btn>
                       </v-date-picker>
                     </v-menu>
                   </v-col>
@@ -193,33 +196,53 @@
                   </v-col>
 
                   <v-col cols="12" sm="6">
-                    <v-text-field label="Min. Teilnehmer" v-model="minPax"></v-text-field>
+                    <v-text-field
+                      label="Min. Teilnehmer"
+                      v-model="minPax"
+                      type="number"
+                    ></v-text-field>
                   </v-col>
 
                   <v-col cols="12" sm="6">
-                    <v-text-field label="Max. Teilnehmer" v-model="maxPax"></v-text-field>
+                    <v-text-field
+                      label="Max. Teilnehmer"
+                      v-model="maxPax"
+                      type="number"
+                    ></v-text-field>
                   </v-col>
 
                   <v-col cols="12" sm="6">
-                    <v-text-field label="Kosten" v-model="kosten"></v-text-field>
+                    <v-text-field
+                      label="Kosten"
+                      v-model="kosten"
+                      type="number"
+                    ></v-text-field>
                   </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
 
             <v-card-actions class="justify-end">
-              <v-btn color="green darken-1" text>Hinzufügen</v-btn>
+              <v-btn color="green darken-1" text @click="createTraining()"
+                >Hinzufügen</v-btn
+              >
               <v-btn text @click="dialog.value = false">Close</v-btn>
             </v-card-actions>
           </v-card>
         </template>
       </v-dialog>
     </v-app-bar>
+    <!-- Header ENDE -->
 
+    <!-- Main -->
     <v-main>
       <router-view :trainings="trainings" @refreshTraining="getTrainings()" />
     </v-main>
+    <!-- MAIN ENDE -->
 
+    <!-- Bottom NAV -->
+    <!-- Bottom nav ist nicht fix da die trainings mehr platz einnehmen und das unterhalb ist 
+    ich muss es fixieren das man die trainings scrollen kann -->
     <v-bottom-navigation class=".align-self-center" outlned>
       <!-- Termine -->
       <v-btn class="my-auto" :to="'/'">
@@ -242,19 +265,27 @@
         <v-icon>{{ mdiAccountCircleOutline }}</v-icon>
       </v-btn>
     </v-bottom-navigation>
+    <!-- BOTTOM NAV ENDE -->
   </v-app>
 </template>
 
 <script>
 import axios from 'axios';
 
-import { mdiCalendarMonth, mdiCalendarText, mdiAccountCircleOutline, mdiCalendarPlus } from '@mdi/js';
+import {
+  mdiCalendarMonth,
+  mdiCalendarText,
+  mdiAccountCircleOutline,
+  mdiCalendarPlus,
+} from '@mdi/js';
 
 export default {
   name: 'App',
 
   data() {
     return {
+      // KA
+      dialog: '',
       trainings: [],
 
       tbDate: '',
@@ -300,12 +331,23 @@ export default {
       this.trainings = data;
       console.log(data);
     },
-    async postTrainings() {
-      const { data } = await axios({
-        url: 'http://localhost:3000/trainings',
-        method: 'POST',
-      });
-      this.trainings = data;
+    async createTraining() {
+      let data = {
+      tbDate: this.tbDate,
+      tbaTime: this.tbaTime,
+      tbeTime: this.tbeTime,
+      anDate: this.anDate,
+      ort: this.ort,
+      minPax: this.minPax,
+      maxPax: this.maxPax,
+      kosten: this.kosten,
+      tbFrist: this.tbFrist,
+    }
+      // const { data } = await axios({
+      //   url: 'http://localhost:3000/trainings',
+      //   method: 'POST',
+      // });
+      // this.trainings = data;
       console.log(data);
     },
   },

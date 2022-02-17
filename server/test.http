@@ -4,7 +4,7 @@ GET http://localhost:3000/trainings
 ###
 GET http://localhost:3000/training/2
 ###
-GET http://localhost:3000//trainingteilnehmer/2
+GET http://localhost:3000/trainingteilnehmer/1
 ###
 DELETE http://localhost:3000/teilnehmer/100
 ###
