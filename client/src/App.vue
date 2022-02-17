@@ -329,6 +329,7 @@ export default {
         },
       });
       this.trainings = data;
+      console.log('Andere');
       console.log(data);
     },
     async createTraining() {
@@ -348,6 +349,7 @@ export default {
       //   method: 'POST',
       // });
       // this.trainings = data;
+      console.log('Andere');
       console.log(data);
     },
   },

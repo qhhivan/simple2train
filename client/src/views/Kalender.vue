@@ -16,36 +16,60 @@
       show-adjacent-months
       show-current
       picker-date
-      selected-items-text="// Jetziger Monat"
+      selected-items-text="Monat"
     ></v-date-picker>
 
-<!-- Trainings -->
-<!-- Alle Trainings anzeigen und on click filtern -->
-    <!-- Vorzeige -->
-    <v-card class="mx-auto mt-8" max-width="344" outlined v-for="t in termine" v-bind:key="t.date">
-      <v-list-item three-line>
-        <v-list-item-content>
-          <v-list-item-title class="text-h6 mb-1">
-            <!-- Trainings Logo -->
-            <v-icon class="mr-3" color="orange darken-2">{{ icon }}</v-icon>
-            <!-- Tag Datum -->
-            {{ t.day }} {{ t.date }}
-          </v-list-item-title>
-          <div class="text--primary mt-1 ml-11">
-            <span class="font-weight-bold"> Treffpunkt: </span>
-            {{ t.time }}
-          </div>
-          <div class="text--primary mt-1 ml-11">
-            <span class="font-weight-bold"> Anmeldefrist: </span>
-            {{ t.deadlineTime }} - {{ t.deadlineDate }}
-          </div>
-          <div class="text--primary mt-1 ml-11">
-            <span class="font-weight-bold"> Kosten: </span>
-            {{ t.kosten }}
-          </div>
-        </v-list-item-content>
-      </v-list-item>
+    <!-- Trainings -->
+    <!-- Alle Trainings anzeigen und on click filtern -->
+    <v-card
+      class="mx-auto ma-3"
+      max-width="500"
+      width="350"
+      v-for="t of trainings"
+      :key="t.trainings_id"
+    >
+      <v-card-text>
+        <div>
+          <v-icon class="mr-3" color="orange darken-2">{{ icon }}</v-icon>
+          <span class="text-h6 black--text"
+            >Training am: {{ t.datum.substring(0, 10) }}</span
+          >
+        </div>
+        <div class="text--primary mt-5 ml-9">
+          <v-icon small>mdi-clock-time-nine-outline</v-icon
+          ><span class="ml-2"
+            >{{ t.beginn.substring(0, 5) }} - {{ t.ende.substring(0, 5) }}</span
+          >
+        </div>
+        <div class="text--primary mt-1 ml-9">
+          <span class="font-weight-bold"> Anmeldefrist: </span>
+          <v-chip class="red white--text">{{
+            t.eintragefrist.substring(0, 10)
+          }}</v-chip>
+        </div>
+        <div class="text--primary mt-1 ml-9">
+          <span class="font-weight-bold"> Kosten: </span>
+          {{ t.kosten }} €
+        </div>
+        <div class="text--primary mt-1 ml-9">
+          <span class="font-weight-bold"> Ort: </span>
+          {{ t.ort }}
+        </div>
+      </v-card-text>
+
+      <!-- Details vorerst weg weil beim Close man auf die Startseite kommt -->
+      <!-- <v-card-actions>
+        <v-btn text color="green accent-4" :to="`/${t.trainings_id}/details`"> Details </v-btn>
+      </v-card-actions> -->
+
+      <!-- <v-card-actions class="justify-center">
+        Button zum entscheiden ob man kommt oder nicht
+        <v-btn outlined rounded text> Ja </v-btn>
+        <v-btn outlined rounded text> Vlt </v-btn>
+        <v-btn outlined rounded text> Nein </v-btn>
+      </v-card-actions> -->
     </v-card>
+    <!-- ENDE -->
   </v-container>
 </template>
 
@@ -53,28 +77,43 @@
 import { mdiVlc } from '@mdi/js';
 
 export default {
-  data: () => ({
-    dates: ['2021-12-15', '2021-12-20', '2021-12-01', '2021-12-29', '2021-12-24'],
+  name: 'Kalender',
+  props: {
+    trainings: {
+      type: Array,
+    },
+  },
 
-    icon: mdiVlc,
-    text: 'JA',
+  data() {
+    return {
+      dates: [
+        '2022-02-15',
+        '2022-02-20',
+        '2022-02-01',
+        '2022-02-27',
+        '2022-02-24',
+      ],
+      trainingsTermine: [],
 
-    termine: [
-      {
-        date: '15.12.2021',
-        day: 'Montag - ',
-        time: '20:00',
-        tp: '19:45',
-        deadlineTime: '19:45',
-        deadlineDate: '24.10.2021',
-        kosten: '2 €',
-      },
-    ],
-  }),
-
+      icon: mdiVlc,
+      text: 'JA',
+    };
+  },
+  created() {
+    this.filterTraining();
+  },
   methods: {
-    filterTraining(date) {
-      alert(`Hier wird ein Training vom: ${date} gefiltert`);
+    filterTraining() {
+      console.log('this.trainings');
+      console.log(this.trainings);
+      for (var i = 0; i < this.trainings.length; i++) {
+        this.trainingsTermine.push(this.trainings[i].datum);
+      }
+      console.log('this.trainings[i].datum');
+      console.log(this.trainings);
+      // this.dates = this.trainingsTermine;
+      // console.log('this.dates');
+      // console.log(this.dates);
     },
     allowedDates() {
       // Hier kann ich Datums erlauben oder nicht
