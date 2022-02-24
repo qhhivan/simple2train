@@ -76,8 +76,7 @@ const postTraining = asyncHandler(async (req, res) => {
     minimum,
     maximum,
     trainerid,
-    ende,
-    eintragefrist,
+    anmeldefrist,
   } = req.body;
   if (
     !trainingsid ||
@@ -88,13 +87,12 @@ const postTraining = asyncHandler(async (req, res) => {
     !minimum ||
     !maximum ||
     !trainerid ||
-    !ende ||
-    !eintragefrist
+    !anmeldefrist
   ) {
     res
       .status(400)
       .send(
-        'One or more properties missing: trainingsid, datum, beginn, ort, kosten, minimum, maximum, trainerid, ende, eintragefrist',
+        'One or more properties missing: trainingsid, datum, beginn, ort, kosten, minimum, maximum, trainerid,  anmeldefrist',
       );
   } else res.status(201).json(await model.postTraining(req.body));
 });

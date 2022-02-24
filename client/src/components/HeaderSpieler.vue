@@ -1,3 +1,5 @@
+<template>
+  
 <v-app-bar app color="black" fixed absolute dark>
       <div class="d-flex align-center">
         <v-img
@@ -197,40 +199,6 @@
       </v-dialog>
     </v-app-bar>
     <!-- Header ENDE -->
-
-    <!-- Main -->
-    <v-main>
-      <router-view :trainings="trainings" @refreshTraining="getTrainings()" />
-    </v-main>
-    <!-- MAIN ENDE -->
-
-    <!-- Bottom NAV -->
-    <!-- Bottom nav ist nicht fix da die trainings mehr platz einnehmen und das unterhalb ist 
-    ich muss es fixieren das man die trainings scrollen kann -->
-    <v-bottom-navigation class=".align-self-center" outlned>
-      <!-- Termine -->
-      <v-btn class="my-auto" :to="'/'">
-        <span>Termine</span>
-
-        <v-icon>{{ mdiCalendarText }}</v-icon>
-      </v-btn>
-
-      <!-- Kalender -->
-      <v-btn class="my-auto" :to="'/kalender'">
-        <span>Kalender</span>
-
-        <v-icon>{{ mdiCalendarMonth }}</v-icon>
-      </v-btn>
-
-      <!-- Profil -->
-      <v-btn class="my-auto" :to="'/profil'">
-        <span>Profil</span>
-
-        <v-icon>{{ mdiAccountCircleOutline }}</v-icon>
-      </v-btn>
-    </v-bottom-navigation>
-    <!-- BOTTOM NAV ENDE -->
-  </v-app>
 </template>
 
 <script>
@@ -271,3 +239,26 @@ export default {
       mdiCalendarPlus: mdiCalendarPlus,
     };
   },
+  methods: {
+    async createTraining() {
+      let data = {
+        tbDate: this.tbDate,
+        tbaTime: this.tbaTime,
+        tbeTime: this.tbeTime,
+        anDate: this.anDate,
+        ort: this.ort,
+        minPax: this.minPax,
+        maxPax: this.maxPax,
+        kosten: this.kosten,
+        tbFrist: this.tbFrist,
+      };
+      // const { data } = await axios({
+      //   url: 'http://localhost:3000/trainings',
+      //   method: 'POST',
+      // });
+      // this.trainings = data;
+      console.log('Andere');
+      console.log(data);
+    },
+  },
+}

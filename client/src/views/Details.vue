@@ -22,12 +22,12 @@
               Training am: <b>{{ getTraining.datum.substring(0, 10) }}</b>
             </div>
             <div class="text-h6 font-weight-light">
-              Beginn & Ende:
-              <b>{{ getTraining.beginn.substring(0, 5) }} - {{ getTraining.ende.substring(0, 5) }}</b>
+              Beginn
+              <b>{{ getTraining.beginn.substring(0, 5) }}</b>
             </div>
 
             <div class="text-h6 font-weight-light">
-              Frist: <b>{{ getTraining.eintragefrist.substring(0, 10) }}</b>
+              Frist: <b>{{ getTraining.anmeldefrist.substring(0, 10) }}</b>
             </div>
             <div class="text-h6 font-weight-light">
               Ort: <b>{{ getTraining.ort }}</b>

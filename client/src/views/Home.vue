@@ -1,14 +1,14 @@
 <template>
   <v-container class="d-flex flex-wrap">
-    <!-- <TerminTrainer :trainings="trainings"/> -->
-    <TerminSpieler :trainings="trainings" class="mx-auto"/>
+    <TerminTrainer :trainings="trainings" class="mx-auto" />
+    <!-- <TerminSpieler :trainings="trainings" class="mx-auto"/> -->
   </v-container>
 </template>
 
 <script>
 import { mdiVlc } from '@mdi/js';
-import TerminSpieler from '@/components/TerminSpieler.vue';
-// import TerminTrainer from '@/components/TerminTrainer.vue';
+// import TerminSpieler from '@/components/TerminSpieler.vue';
+import TerminTrainer from '@/components/TerminTrainer.vue';
 
 export default {
   name: 'Home',
@@ -18,9 +18,9 @@ export default {
     },
   },
   components: {
-  // TerminTrainer,
-  TerminSpieler
-},
+    TerminTrainer,
+    // TerminSpieler
+  },
 
   data() {
     return {

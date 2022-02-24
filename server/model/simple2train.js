@@ -9,7 +9,9 @@ const db = require('../db');
 // };
 
 const getTeilnehmers = async () => {
-  const { rows } = await db.query('SELECT * FROM teilnehmer order by teilnehmer_id');
+  const { rows } = await db.query(
+    'SELECT * FROM teilnehmer order by teilnehmer_id',
+  );
   return rows;
 };
 
@@ -45,7 +47,10 @@ const deleteTeilnehmer = (id) =>
 const getTeilnehmer = async (param) => {
   let result = null;
   if (param.id) {
-    result = await db.query('SELECT * FROM teilnehmer WHERE teilnehmer_id = $1', [param.id]);
+    result = await db.query(
+      'SELECT * FROM teilnehmer WHERE teilnehmer_id = $1',
+      [param.id],
+    );
   }
   return result.rows;
 };
@@ -53,13 +58,20 @@ const getTeilnehmer = async (param) => {
 const postTeilnehmer = async (body) => {
   const { rows } = await db.query(
     'INSERT INTO teilnehmer (teilnehmer_id, vorname, nachname, geburtsdatum, email, passwort) VALUES ($1,$2,$3,$4,$5,$6) returning *',
-    [body.teilnehmerid, body.vorname, body.nachname, body.geburtsdatum, body.email, body.passwort],
+    [
+      body.teilnehmerid,
+      body.vorname,
+      body.nachname,
+      body.geburtsdatum,
+      body.email,
+      body.passwort,
+    ],
   );
   return rows;
 };
 const postTraining = async (body) => {
   const { rows } = await db.query(
-    'INSERT INTO trainings (trainings_id, datum, beginn, ort, kosten, minimum, maximum, trainer_id, ende, eintragefrist) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) returning *',
+    'INSERT INTO trainings (trainings_id, datum, beginn, ort, kosten, minimum, maximum, trainer_id,  anmeldefrist) VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) returning *',
     [
       body.trainingsid,
       body.datum,
@@ -69,8 +81,7 @@ const postTraining = async (body) => {
       body.minimum,
       body.maximum,
       body.trainerid,
-      body.ende,
-      body.eintragefrist,
+      body.anmeldefrist,
     ],
   );
   return rows;

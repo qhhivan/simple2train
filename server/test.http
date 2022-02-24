@@ -4,7 +4,7 @@ GET http://localhost:3000/trainings
 ###
 GET http://localhost:3000/training/2
 ###
-GET http://localhost:3000/trainingteilnehmer/1
+GET http://localhost:3000/trainingteilnehmer/4
 ###
 DELETE http://localhost:3000/teilnehmer/100
 ###
@@ -24,7 +24,6 @@ POST http://localhost:3000/training
 Content-Type: application/json
 
 {
-    "trainingsid": 100,
     "datum": "2026-01-01",
     "beginn": "23:59",
     "ort": "HTL TEST",

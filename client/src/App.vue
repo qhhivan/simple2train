@@ -290,7 +290,6 @@ export default {
 
       tbDate: '',
       tbaTime: '',
-      tbeTime: '',
       anDate: '',
       ort: '',
       minPax: '',
@@ -324,8 +323,7 @@ export default {
           kosten: this.kosten,
           minimum: this.minPax,
           maximum: this.maxPax,
-          ende: this.tbeTime,
-          eintragungsfrist: this.tbFrist,
+          anmeldefrist: this.tbFrist,
         },
       });
       this.trainings = data;
@@ -334,16 +332,16 @@ export default {
     },
     async createTraining() {
       let data = {
-      tbDate: this.tbDate,
-      tbaTime: this.tbaTime,
-      tbeTime: this.tbeTime,
-      anDate: this.anDate,
-      ort: this.ort,
-      minPax: this.minPax,
-      maxPax: this.maxPax,
-      kosten: this.kosten,
-      tbFrist: this.tbFrist,
-    }
+        tbDate: this.tbDate,
+        tbaTime: this.tbaTime,
+        tbeTime: this.tbeTime,
+        anDate: this.anDate,
+        ort: this.ort,
+        minPax: this.minPax,
+        maxPax: this.maxPax,
+        kosten: this.kosten,
+        tbFrist: this.tbFrist,
+      };
       // const { data } = await axios({
       //   url: 'http://localhost:3000/trainings',
       //   method: 'POST',

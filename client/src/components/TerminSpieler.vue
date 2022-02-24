@@ -18,13 +18,13 @@
         <div class="text--primary mt-5 ml-9">
           <v-icon small>mdi-clock-time-nine-outline</v-icon
           ><span class="ml-2"
-            >{{ t.beginn.substring(0, 5) }} - {{ t.ende.substring(0, 5) }}</span
+            >{{ t.beginn.substring(0, 5) }}</span
           >
         </div>
         <div class="text--primary mt-1 ml-9">
           <span class="font-weight-bold"> Anmeldefrist: </span>
           <v-chip class="red white--text">{{
-            t.eintragefrist.substring(0, 10)
+            t.anmeldefrist.substring(0, 10)
           }}</v-chip>
         </div>
         <div class="text--primary mt-1 ml-9">
